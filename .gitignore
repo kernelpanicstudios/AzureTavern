@@ -1,4 +1,11 @@
 #############
+## Project-specific
+#############
+
+local_settings.py
+secret_key.txt
+
+#############
 ## Python
 #############
 
