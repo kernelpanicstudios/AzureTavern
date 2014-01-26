@@ -13,6 +13,7 @@ Dependencies
 
   * Python 2.7 (reference: 2.7.3)
   * Django 1.5 (reference: 1.5.5)
+  * South 0.8 (reference: 0.8.4)
 
 Developer Setup
 ---------------
@@ -23,7 +24,13 @@ Here are the instructions for setting up Azure Tavern for local development:
   2. Navigate into `{YourLocalProjectDirectory}/src/AzureTavern/AzureTavern`
      and copy **local_settings.py.template** to **local_settings.py** in the
      same directory.
-  3. Sanity check: Run `python src/AzureTavern/manage.py runserver` from the
+  3. Make changes to local_settings.py to match your desired database settings.
+  4. Run `python src/AzureTavern/manage.py syncdb` to create tables etc. for
+     the Django apps which do not use South migrations.
+  5. Run `python src/AzureTavern/manage.py migrate` to create tables etc. for
+     the Django apps which do use South migrations (including the ones we are
+     developing here).
+  6. Sanity check: Run `python src/AzureTavern/manage.py runserver` from the
      project root and make sure the server starts up. If it does, you're good
      to go; if not, reach out to the other developers for help.
 
