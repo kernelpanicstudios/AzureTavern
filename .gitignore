@@ -20,3 +20,9 @@ pip-log.txt
 
 #Translations
 *.mo
+
+#############
+## Other junk
+#############
+
+*.swp
