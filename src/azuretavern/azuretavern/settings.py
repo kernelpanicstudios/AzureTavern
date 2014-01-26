@@ -33,6 +33,7 @@ ROOT_URLCONF = 'azuretavern.urls'
 WSGI_APPLICATION = 'azuretavern.wsgi.application'
 
 INSTALLED_APPS = (
+    # Core Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -43,6 +44,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    # Third-party
+    'south',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
