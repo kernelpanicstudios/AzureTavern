@@ -33,6 +33,9 @@ ROOT_URLCONF = 'azuretavern.urls'
 WSGI_APPLICATION = 'azuretavern.wsgi.application'
 
 INSTALLED_APPS = (
+    # Azure Tavern
+    'rptavern',
+
     # Core Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
