@@ -1,0 +1,19 @@
+{% extends "layouts/basic.html" %}
+
+{% block layout %}
+  <div class="topbar container">
+    <div class="fixed-center">
+      {% block topcontent %}{% endblock %}
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="header" class="fixed-center">
+      {% block header %}{% endblock %}
+    </div>
+
+    <div id="content" class="fixed-center">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}
