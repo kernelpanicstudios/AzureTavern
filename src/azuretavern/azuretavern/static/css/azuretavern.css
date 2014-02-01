@@ -1,0 +1,32 @@
+/**
+ azuretavern.css: Main CSS file for the Azure Tavern.
+*/
+
+@import url("/static/css/reset.css");
+
+/*** Basic styles ***/
+
+body {
+	background-color: #ffffff;
+	color: #333333;
+	font-size: 1.0em;
+}
+
+/*** General container stuff ***/
+
+.fixed-center {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.container {
+	text-align: left;
+}
+
+/*** Top bar ***/
+
+.topbar {
+	background-color: #007fff;
+	height: 2.0em;
+}
+

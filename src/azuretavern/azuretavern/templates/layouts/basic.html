@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+  {% load staticfiles %}
   <head>
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/azuretavern.css" %}">
   </head>
 
   <body>
