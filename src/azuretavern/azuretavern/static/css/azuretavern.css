@@ -12,6 +12,20 @@ body {
 	font-size: 1.0em;
 }
 
+h1 {
+	font-size: 2.0em;
+}
+
+h2 {
+	font-size: 1.7em;
+}
+
+/*** Hyperlinks ***/
+
+a {
+	text-decoration: none;
+}
+
 /*** General container stuff ***/
 
 .fixed-center {
@@ -27,6 +41,7 @@ body {
 
 .topbar {
 	background-color: #007fff;
-	height: 2.0em;
+	height: 2.5em;
+	padding: 0.25em 0;
 }
 

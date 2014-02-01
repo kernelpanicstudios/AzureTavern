@@ -1,9 +1,16 @@
 {% extends "layouts/basic.html" %}
+{% load i18n %}
 
 {% block layout %}
   <div class="topbar container">
     <div class="fixed-center">
-      {% block topcontent %}{% endblock %}
+    {% block topcontent %}
+      <h1>
+        <a href="{% url "home" %}">
+          {% trans "Azure Tavern" %}
+        </a>
+      </h1>
+    {% endblock %}
     </div>
   </div>
 
