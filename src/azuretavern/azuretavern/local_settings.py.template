@@ -1,4 +1,7 @@
 """Local settings for this azuretavern installation."""
+# WARNING: This is a template file meant to be used by new developers to
+# quickly create a local settings file. DO NOT MODIFY THIS unless you know
+# what you are doing!
 
 import os
 from django.core.exceptions import ImproperlyConfigured
@@ -76,6 +79,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(__location, 'static'),
 )
 
 # List of finder classes that know how to find static files in
