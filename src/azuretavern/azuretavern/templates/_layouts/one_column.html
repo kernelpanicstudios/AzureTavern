@@ -11,14 +11,7 @@
         </a>
       </div>
       <div id="toplinks">
-        <ul>
-          <li>
-            <a href="{% url "login" %}">{% trans "Log in" %}</a>
-          </li>
-          <li>
-            <a href="{% url "register" %}">{% trans "Create an account" %}</a>
-          </li>
-        </ul>
+        {% include "_helpers/topstatus.html" %}
       </div>
     {% endblock %}
     </div>

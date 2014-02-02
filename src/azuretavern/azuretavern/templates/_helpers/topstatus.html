@@ -1,0 +1,26 @@
+{% load i18n %}
+
+{% if user.is_authenticated %}
+  <div>
+    {% blocktrans with username=user.username %}
+    Welcome, {{ username }}!
+    {% endblocktrans %}
+  </div>
+  <ul>
+    <li>
+      <a href="{% url "logout" %}">Log out</a>
+    </li>
+  </ul>
+{% else %}
+  <div>
+    {% trans "You are not logged in." %}
+  </div>
+  <ul>
+    <li>
+      <a href="{% url "login" %}">{% trans "Log in" %}</a>
+    </li>
+    <li>
+      <a href="{% url "register" %}">{% trans "Create an account" %}</a>
+    </li>
+  </ul>
+{% endif %}
