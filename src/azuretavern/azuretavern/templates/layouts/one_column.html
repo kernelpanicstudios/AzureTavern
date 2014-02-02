@@ -5,11 +5,21 @@
   <div class="topbar container">
     <div class="fixed-center">
     {% block topcontent %}
-      <h1>
+      <div id="toplogo">
         <a href="{% url "home" %}">
           {% trans "Azure Tavern" %}
         </a>
-      </h1>
+      </div>
+      <div id="toplinks">
+        <ul>
+          <li>
+            <a href="{% url "login" %}">{% trans "Log in" %}</a>
+          </li>
+          <li>
+            <a href="{% url "register" %}">{% trans "Create an account" %}</a>
+          </li>
+        </ul>
+      </div>
     {% endblock %}
     </div>
   </div>

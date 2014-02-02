@@ -46,3 +46,23 @@ a {
 	padding: 0.25em 0;
 }
 
+#toplogo {
+	/* TODO: (KTP) Improve this later */
+	float: left;
+}
+
+#toplinks {
+	/* TODO: (KTP) Improve this later */
+	float: right;
+}
+
+#toplinks li {
+	display: inline-block;
+}
+
+#toplinks li+li:before {
+	/* TODO: (KTP) Replace with an image later */
+	content: "|";
+	padding: 0 5px;
+	color: #333399;
+}
