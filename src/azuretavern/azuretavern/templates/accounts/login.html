@@ -1,0 +1,12 @@
+{% extends "layouts/one_column.html" %}
+{% load i18n %}
+
+{% block content %}
+  {% trans "Please log in using the form below:" %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="{% trans "Log in" %}">
+  </form>
+{% endblock %}

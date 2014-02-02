@@ -1,0 +1,14 @@
+{% extends "layouts/one_column.html" %}
+{% load i18n %}
+
+{% block content %}
+  <p>
+    {% trans "Please fill out the form below to create an account:" %}
+  </p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="{% trans "Create account" %}">
+  </form>
+{% endblock %}
