@@ -1,0 +1,28 @@
+{% extends "_layouts/one_column.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% if is_me %}
+    {% trans "My Characters" %}
+  {% else %}
+    {% trans "Character List" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for character in characters %}
+    {% if forloop.first %}<ul>{% endif %}
+    <li>
+      {{ character.full_name }}
+    </li>
+    {% if forloop.last %}</ul>{% endif %}
+  {% empty %}
+  {% trans "You have no characters." %}
+  {% endfor %}
+
+  <p>
+    <a href="{% url "new-character" %}">
+      {% trans "Create new character" %}
+    </a>
+  </p>
+{% endblock %}

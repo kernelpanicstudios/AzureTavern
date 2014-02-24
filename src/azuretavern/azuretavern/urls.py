@@ -9,6 +9,9 @@ from .views import (HomeView, LoginView, LogoutView, RegisterView,
 urlpatterns = patterns('',
     url(r'^$', HomeView.as_view(), name='home'),
 
+    # RPTavern URLs (the main application)
+    url(r'^rp/', include('rptavern.urls')),
+
     # Registration/login
     url(r'^account/login$', LoginView.as_view(), name='login'),
     url(r'^account/logout$', LogoutView.as_view(), name='logout'),

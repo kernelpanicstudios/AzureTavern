@@ -1,0 +1,18 @@
+{% extends "_layouts/one_column.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% if is_me %}
+    {% trans "My Characters" %}
+  {% else %}
+    {% trans "Character List" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="{% trans "Create character" %}">
+  </form>
+{% endblock %}
