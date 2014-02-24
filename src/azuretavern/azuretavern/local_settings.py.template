@@ -53,7 +53,11 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
-#### Local paths/URL configuration (media, static)
+#### Local paths/URL configuration
+
+# Login URL (shouldn't need to change for local installations, may need to be
+# tweaked if embedding RPTavern functionality elsewhere).
+LOGIN_URL = '/account/login'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
