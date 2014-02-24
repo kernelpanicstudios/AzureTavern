@@ -12,8 +12,9 @@ Dependencies
 ------------
 
   * Python 2.7 (reference: 2.7.3)
-  * Django 1.5 (reference: 1.5.5)
+  * Django 1.6 (reference: 1.6.1)
   * South 0.8 (reference: 0.8.4)
+  * django-braces 1.3 (reference: 1.3.1)
 
 Developer Setup
 ---------------
