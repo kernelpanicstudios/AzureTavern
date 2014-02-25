@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
-from django.contrib.auth.views import login
-from .views import (HomeView, LogoutView, RegisterView,
-    RegistrationCompleteView)
+from django.contrib.auth.views import login, logout
+from .views import HomeView, RegisterView, RegistrationCompleteView
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -18,7 +17,10 @@ urlpatterns = patterns('',
         {'template_name': 'accounts/login.html'},
         name='login',
     ),
-    url(r'^account/logout$', LogoutView.as_view(), name='logout'),
+    url(r'^account/logout$', logout,
+        {'next_page': '/'},
+        name='logout',
+    ),
     url(r'^account/register$', RegisterView.as_view(), name='register'),
     url(r'^account/created$',
         RegistrationCompleteView.as_view(),

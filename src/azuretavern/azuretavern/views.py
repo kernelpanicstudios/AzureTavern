@@ -15,11 +15,3 @@ class RegisterView(FormView):
 
 class RegistrationCompleteView(TemplateView):
     template_name = 'accounts/complete.html'
-
-class LogoutView(RedirectView):
-    pattern_name = 'home'
-
-    def get(self, request, *args, **kwargs):
-        """Logs the user out."""
-        logout(request)
-        return super(LogoutView, self).get(request, *args, **kwargs)
