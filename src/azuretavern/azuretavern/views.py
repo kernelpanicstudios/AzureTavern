@@ -8,15 +8,6 @@ from django.views.generic import FormView, RedirectView, TemplateView
 class HomeView(TemplateView):
     template_name = 'index.html'
 
-class LoginView(FormView):
-    form_class = AuthenticationForm
-    template_name = 'accounts/login.html'
-    success_url = urlresolvers.reverse_lazy('home')
-
-    def form_valid(self, form):
-        login(self.request, form.user_cache)
-        return super(LoginView, self).form_valid(form)
-
 class RegisterView(FormView):
     form_class = UserCreationForm
     template_name = 'accounts/register.html'
