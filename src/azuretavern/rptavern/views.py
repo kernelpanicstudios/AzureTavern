@@ -9,16 +9,17 @@ class MyCharacterListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Character.objects.filter(
-            player=self.request.user
+            player=self.request.user,
         ).order_by('full_name')
 
     def get_context_data(self, **kwargs):
         context = super(MyCharacterListView, self).get_context_data(**kwargs)
-        context['is_me'] = True
+        context['player'] = self.request.user
         return context
 
 class CharacterCreateView(LoginRequiredMixin, CreateView):
     model = Character
+    # TODO: Create a form class and use it to choose important fields
 
     def get_initial(self):
         return {
