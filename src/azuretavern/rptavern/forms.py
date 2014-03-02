@@ -3,7 +3,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from braces.forms import UserKwargModelFormMixin
-from rptavern.models import Character
+from rptavern.models import Character, Game
 
 class CharacterCreateForm(UserKwargModelFormMixin, forms.ModelForm):
     class Meta:
@@ -20,3 +20,7 @@ class CharacterCreateForm(UserKwargModelFormMixin, forms.ModelForm):
                 code='invalid_player',
             )
         return self.cleaned_data['player']
+
+class GameForm(UserKwargModelFormMixin, forms.ModelForm):
+    class Meta:
+        model = Game

@@ -1,0 +1,23 @@
+{% extends "_layouts/one_column.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "New Game" %}
+{% endblock %}
+
+{% block content %}
+  <p>
+    {% trans "Please fill out the form below to create a new game:" %}
+  </p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if game.pk %}
+    <input type="submit" value="{% trans "Modify game" %}">
+    {% else %}
+    <input type="submit" value="{% trans "Create game" %}">
+    {% endif %}
+  </form>
+{% endblock %}
