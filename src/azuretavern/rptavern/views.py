@@ -4,7 +4,7 @@ from django.core.exceptions import ImproperlyConfigured
 from django.shortcuts import get_object_or_404
 from django.views.generic import CreateView, ListView, DetailView, UpdateView
 from braces.views import LoginRequiredMixin, UserFormKwargsMixin
-from .forms import CharacterCreateForm, GameForm
+from .forms import CharacterForm, GameForm
 from .models import Character, Game
 
 class AbstractCharacterListView(LoginRequiredMixin, ListView):
@@ -37,7 +37,7 @@ class CharacterListView(AbstractCharacterListView):
 
 class CharacterCreateView(LoginRequiredMixin, UserFormKwargsMixin, CreateView):
     model = Character
-    form_class = CharacterCreateForm
+    form_class = CharacterForm
 
     def get_initial(self):
         return {
@@ -46,7 +46,7 @@ class CharacterCreateView(LoginRequiredMixin, UserFormKwargsMixin, CreateView):
 
 class CharacterEditView(LoginRequiredMixin, UserFormKwargsMixin, UpdateView):
     model = Character
-    form_class = CharacterCreateForm
+    form_class = CharacterForm
 
     def get_initial(self):
         return {
