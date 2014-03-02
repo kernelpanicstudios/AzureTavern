@@ -2,7 +2,7 @@
 
 from django.core.exceptions import ImproperlyConfigured
 from django.shortcuts import get_object_or_404
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from braces.views import LoginRequiredMixin, UserFormKwargsMixin
 from .forms import CharacterCreateForm
 from .models import Character
@@ -43,3 +43,6 @@ class CharacterCreateView(LoginRequiredMixin, UserFormKwargsMixin, CreateView):
         return {
             'player': self.request.user,
         }
+
+class CharacterDetailsView(LoginRequiredMixin, DetailView):
+    model = Character

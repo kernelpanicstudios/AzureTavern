@@ -1,0 +1,32 @@
+{% extends "_layouts/one_column.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% blocktrans with name=character.full_name %}
+    Character Details: {{ name }}
+  {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+  <p>
+    {{ character.full_name }} ({{ character.short_name }})
+  </p>
+
+  <p>
+    {% trans "Player:" %} {{ character.player.username }}
+  </p>
+
+  <p>
+    {% trans "Gender:" %} {{ character.get_gender_display }}
+  </p>
+
+  <p>
+    {% trans "Description:" %} {{ character.description }}
+  </p>
+
+  {% if character.player == user %}
+  <p>
+    <a href="{% url "my-characters" %}">{% trans "Back to my characters" %}</a>
+  </p>
+  {% endif %}
+{% endblock %}

@@ -14,7 +14,10 @@
     {% if forloop.first %}<ul>{% endif %}
     <li>
       <div>
-        {{ character.full_name }} ({{ character.short_name }})
+        <a href="{% url "character-details" pk=character.id %}">
+          {{ character.full_name }}
+        </a>
+        ({{ character.short_name }})
       </div>
       <div>
         {% trans "Gender:" %} {{ character.get_gender_display }}
