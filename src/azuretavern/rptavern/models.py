@@ -35,3 +35,18 @@ class Character(models.Model):
 
     def __unicode__(self):
         return self.full_name
+
+class Game(models.Model):
+    gm = models.ForeignKey(User)
+    title = models.CharField(max_length=80)
+    subtitle = models.CharField(max_length=200)
+    description = models.CharField(max_length=500)
+    players = models.ManyToManyField(
+        User,
+        through='GamePlayer',
+        related_name='players',
+    )
+
+class GamePlayer(models.Model):
+    game = models.ForeignKey(Game)
+    player = models.ForeignKey(User)
