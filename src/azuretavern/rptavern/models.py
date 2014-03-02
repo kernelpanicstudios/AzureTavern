@@ -1,5 +1,6 @@
 """Models needed for the RPTavern."""
 
+from django.core import urlresolvers
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
@@ -25,6 +26,12 @@ class Character(models.Model):
         unique_together = ('player', 'full_name')
         verbose_name = _('character')
         verbose_name_plural = _('characters')
+
+    def get_absolute_url(self):
+        return urlresolvers.reverse(
+            'character-details',
+            kwargs={'pk': self.id},
+        )
 
     def __unicode__(self):
         return self.full_name
