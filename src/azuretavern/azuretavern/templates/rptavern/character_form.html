@@ -13,6 +13,11 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+
+    {% if character.pk %}
+    <input type="submit" value="{% trans "Modify character" %}">
+    {% else %}
     <input type="submit" value="{% trans "Create character" %}">
+    {% endif %}
   </form>
 {% endblock %}
