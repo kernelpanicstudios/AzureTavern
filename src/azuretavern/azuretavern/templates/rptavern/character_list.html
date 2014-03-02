@@ -13,7 +13,15 @@
   {% for character in characters %}
     {% if forloop.first %}<ul>{% endif %}
     <li>
-      {{ character.full_name }}
+      <div>
+        {{ character.full_name }} ({{ character.short_name }})
+      </div>
+      <div>
+        {% trans "Gender:" %} {{ character.get_gender_display }}
+      </div>
+      <div>
+        {{ character.description }}
+      </div>
     </li>
     {% if forloop.last %}</ul>{% endif %}
   {% empty %}
