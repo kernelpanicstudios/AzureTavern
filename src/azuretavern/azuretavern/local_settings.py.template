@@ -59,6 +59,10 @@ SITE_ID = 1
 # tweaked if embedding RPTavern functionality elsewhere).
 LOGIN_URL = '/account/login'
 
+# Login success redirect URL (shouldn't need to change for local installations,
+# may need to be tweaked if embedding RPTavern functionality elsewhere).
+LOGIN_REDIRECT_URL = '/'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = ''
