@@ -2,7 +2,7 @@
 
 from django.conf.urls import include, patterns, url
 from .views import (MyCharacterListView, CharacterCreateView,
-    CharacterDetailsView)
+    CharacterEditView, CharacterDetailsView)
 
 urlpatterns = patterns('',
     url(r'characters/me$', MyCharacterListView.as_view(),
@@ -13,5 +13,8 @@ urlpatterns = patterns('',
     ),
     url(r'characters/details/(?P<pk>\d+)$', CharacterDetailsView.as_view(),
         name='character-details',
+    ),
+    url(r'characters/edit/(?P<pk>\d+)$', CharacterEditView.as_view(),
+        name='update-character',
     ),
 )
