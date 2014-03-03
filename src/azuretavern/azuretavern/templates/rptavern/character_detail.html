@@ -26,6 +26,12 @@
 
   {% if character.player == user %}
   <p>
+    <a href="{% url "update-character" pk=character.pk %}">
+      {% trans "Edit character" %}
+    </a>
+  </p>
+
+  <p>
     <a href="{% url "my-characters" %}">{% trans "Back to my characters" %}</a>
   </p>
   {% endif %}

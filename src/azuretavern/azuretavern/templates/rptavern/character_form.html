@@ -20,4 +20,8 @@
     <input type="submit" value="{% trans "Create character" %}">
     {% endif %}
   </form>
+
+  {% if character.pk %}
+    <a href="{{ character.get_absolute_url }}">{% trans "Back" %}</a>
+  {% endif %}
 {% endblock %}
