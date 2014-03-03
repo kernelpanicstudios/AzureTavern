@@ -2,7 +2,7 @@
 
 from django.conf.urls import include, patterns, url
 from .views import (MyCharacterListView, CharacterCreateView,
-    CharacterEditView, CharacterDetailsView, GameCreateView)
+    CharacterEditView, CharacterDetailsView, GameCreateView, MyGameGMListView)
 
 urlpatterns = patterns('',
     url(r'characters/me$', MyCharacterListView.as_view(),
@@ -19,5 +19,8 @@ urlpatterns = patterns('',
     ),
     url(r'games/new$', GameCreateView.as_view(),
         name='new-game',
+    ),
+    url(r'games/gm/me$', MyGameGMListView.as_view(),
+        name='my-games-gm',
     ),
 )

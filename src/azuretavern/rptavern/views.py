@@ -64,3 +64,23 @@ class GameCreateView(LoginRequiredMixin, UserFormKwargsMixin, CreateView):
         return {
             'gm': self.request.user,
         }
+
+class AbstractGameGMListView(LoginRequiredMixin, UserFormKwargsMixin, ListView):
+    context_object_name = 'games'
+
+    def get_gm(self):
+        raise ImproperlyConfigured('get_gm() must be configured')
+
+    def get_queryset(self):
+        return Game.objects.filter(
+            gm=self.get_gm(),
+        ).order_by('title')
+
+    def get_context_data(self, **kwargs):
+        context = super(AbstractGameGMListView, self).get_context_data(**kwargs)
+        context['gm'] = self.get_gm()
+        return context
+
+class MyGameGMListView(AbstractGameGMListView):
+    def get_gm(self):
+        return self.request.user

@@ -1,0 +1,38 @@
+{% extends "_layouts/one_column.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "My Games" %}
+{% endblock %}
+
+{% block content %}
+  {% for game in games %}
+
+  {% if forloop.first %}
+  <p>
+    {% trans "My games:" %}
+  </p>
+
+  <ul>
+  {% endif %}
+
+    <li>
+      <div>{{ game.title }}</div>
+      <div>{{ game.subtitle }}</div>
+      <div>{{ game.description }}</div>
+    </li>
+
+  {% if forloop.last %}
+  </ul>
+  {% endif %}
+
+  {% empty %}
+  <p>
+    {% trans "You are not running any games." %}
+  </p>
+  {% endfor %}
+
+  <p>
+    <a href="{% url "new-game" %}">{% trans "Create new game" %}</a>
+  </p>
+{% endblock %}
