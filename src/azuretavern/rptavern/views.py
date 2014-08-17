@@ -65,7 +65,7 @@ class GameCreateView(LoginRequiredMixin, UserFormKwargsMixin, CreateView):
             'gm': self.request.user,
         }
 
-class AbstractGameGMListView(LoginRequiredMixin, UserFormKwargsMixin, ListView):
+class AbstractGameGMListView(LoginRequiredMixin, ListView):
     context_object_name = 'games'
 
     def get_gm(self):
