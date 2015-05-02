@@ -50,3 +50,23 @@ class Game(models.Model):
 class GamePlayer(models.Model):
     game = models.ForeignKey(Game)
     player = models.ForeignKey(User)
+
+class CharacterNote(models.Model):
+    PRIVATE = 'pr'
+    LIMITED = 'li'
+    PUBLIC = 'pu'
+    PERMISSION_CHOICES = (
+        (PRIVATE, _('Private')),
+        (LIMITED, _('Limited')),
+        (PUBLIC, _('Public')),
+    )
+
+    character = models.ForeignKey(Character)
+    title = models.CharField(max_length=100, blank=True)
+    text = models.CharField(max_length=4000)
+    permissions = models.CharField(max_length=3, choices=PERMISSION_CHOICES)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        order_with_respect_to = 'character'
