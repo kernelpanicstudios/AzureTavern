@@ -11,7 +11,7 @@ information.
 Dependencies
 ------------
 
-See **src/azuretavern/requirements.txt**.
+See [requirements.txt](src/azuretavern/requirements.txt).
 
 Developer Setup
 ---------------
