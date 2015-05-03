@@ -1,9 +1,10 @@
 """rptavern forms."""
 
 from django import forms
+from django.forms.models import inlineformset_factory
 from django.utils.translation import ugettext_lazy as _
 from braces.forms import UserKwargModelFormMixin
-from rptavern.models import Character, Game
+from rptavern.models import Character, Game, CharacterNote
 
 class CharacterForm(UserKwargModelFormMixin, forms.ModelForm):
     class Meta:
@@ -36,3 +37,26 @@ class GameForm(UserKwargModelFormMixin, forms.ModelForm):
                 code='invalid_gm',
             )
         return self.cleaned_data['gm']
+
+class CharacterNoteForm(UserKwargModelFormMixin, forms.ModelForm):
+    class Meta:
+        model = CharacterNote
+        fields = ['character', 'title', 'text', 'permissions']
+        widgets = {
+            'character': forms.HiddenInput,
+        }
+
+    def clean_character(self):
+        if self.cleaned_data['character'].player != self.user:
+            raise forms.ValidationError(
+                _('You cannot create or edit notes for characters that do not'
+                    'belong to you'),
+                code='character_permission_denied',
+            )
+        return self.cleaned_data['character']
+
+CharacterNotesFormSet = inlineformset_factory(
+    Character,
+    CharacterNote,
+    form=CharacterNoteForm,
+)
